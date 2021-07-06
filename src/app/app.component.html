@@ -1,0 +1,17 @@
+<div class="container">
+  <label>Enter Agent Name</label>
+  <textarea id="inputValue" [(ngModel)]="workout.name" name="name" rows="4" cols="50"></textarea>
+  <div>
+    <button id="btn1" type="button" [disabled]="workout.name == ''" (click)="onAddClick(workout.name)">Add</button>
+    <button id="btn2" type="button" (click)="onResetTextClick()">Reset</button>
+  </div>
+  <kendo-autocomplete [data]="notes" [suggest]="true" [placeholder]="'e.g. Jake Williams'"
+    (valueChange)="onServiceChanged($event)"></kendo-autocomplete>
+  <div *ngFor="let value of services">
+    <h4><span class="badge badge-warning">{{value}}</span></h4>
+  </div>
+  <div *ngIf="rstbtn">
+    <button id="val" style="margin-left: 60px;" type="button" class="btn btn-secondary btn-sm"
+      (click)="onResetClick()">Reset</button>
+  </div>
+</div>
